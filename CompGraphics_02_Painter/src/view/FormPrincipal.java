@@ -39,10 +39,14 @@ public class FormPrincipal extends javax.swing.JFrame {
         txtX2 = new javax.swing.JTextField();
         lblY2 = new javax.swing.JLabel();
         txtY2 = new javax.swing.JTextField();
-        btnDesenharSegmentoReta1 = new javax.swing.JButton();
         pnCor = new javax.swing.JPanel();
         pnCorContorno = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        pnCircunferencia = new javax.swing.JPanel();
+        lblRaio = new javax.swing.JLabel();
+        txtRaio = new javax.swing.JTextField();
+        btnDesenharCircunferencia = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,14 +109,6 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         txtY2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        btnDesenharSegmentoReta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnDesenharSegmentoReta1.setText("limpar");
-        btnDesenharSegmentoReta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesenharSegmentoReta1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnSegmentoRetaLayout = new javax.swing.GroupLayout(pnSegmentoReta);
         pnSegmentoReta.setLayout(pnSegmentoRetaLayout);
         pnSegmentoRetaLayout.setHorizontalGroup(
@@ -138,8 +134,7 @@ public class FormPrincipal extends javax.swing.JFrame {
                             .addGroup(pnSegmentoRetaLayout.createSequentialGroup()
                                 .addComponent(lblY2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtY2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(btnDesenharSegmentoReta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtY2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         pnSegmentoRetaLayout.setVerticalGroup(
@@ -159,8 +154,6 @@ public class FormPrincipal extends javax.swing.JFrame {
                     .addComponent(lblY2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDesenharSegmentoReta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDesenharSegmentoReta1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -211,18 +204,70 @@ public class FormPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnCircunferencia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Circunferência", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblRaio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblRaio.setText("Raio");
+
+        txtRaio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        btnDesenharCircunferencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDesenharCircunferencia.setText("desenhar");
+        btnDesenharCircunferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesenharCircunferenciaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnCircunferenciaLayout = new javax.swing.GroupLayout(pnCircunferencia);
+        pnCircunferencia.setLayout(pnCircunferenciaLayout);
+        pnCircunferenciaLayout.setHorizontalGroup(
+            pnCircunferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnCircunferenciaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnCircunferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDesenharCircunferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                    .addGroup(pnCircunferenciaLayout.createSequentialGroup()
+                        .addComponent(lblRaio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRaio)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnCircunferenciaLayout.setVerticalGroup(
+            pnCircunferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnCircunferenciaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnCircunferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRaio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDesenharCircunferencia)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnLimpar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLimpar.setText("limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtXY)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnSegmentoReta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnCor, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)))
-                    .addComponent(txtXY))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pnSegmentoReta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pnCor, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                .addComponent(pnCircunferencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
                 .addContainerGap())
@@ -236,11 +281,17 @@ public class FormPrincipal extends javax.swing.JFrame {
                         .addComponent(pnCor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnSegmentoReta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pnCircunferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addGap(18, 18, 18)
                         .addComponent(txtXY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        pnCircunferencia.getAccessibleContext().setAccessibleName("CIrcunferência");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -279,16 +330,32 @@ public class FormPrincipal extends javax.swing.JFrame {
             int y1 = Integer.parseInt(txtY1.getText());
             int x2 = Integer.parseInt(txtX2.getText());
             int y2 = Integer.parseInt(txtY2.getText());
-            png.desenharSegmentoReta(x1, y1, x2, y2,
+//            png.desenharSegmentoReta(x1, y1, x2, y2,
+//                    pnCorContorno.getBackground());
+
+            png.desenharSegmentoRetaBresenham(x1, y1, x2, y2,
                     pnCorContorno.getBackground());
         } catch (Exception e) {
             
         }
     }//GEN-LAST:event_btnDesenharSegmentoRetaActionPerformed
 
-    private void btnDesenharSegmentoReta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharSegmentoReta1ActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         png.limpar();
-    }//GEN-LAST:event_btnDesenharSegmentoReta1ActionPerformed
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnDesenharCircunferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharCircunferenciaActionPerformed
+        try {
+            int raio = Integer.parseInt(txtRaio.getText());
+            png.desenharCircunferencia(raio, pnCorContorno.getBackground());
+       
+            for (int i = raio; i < 1000; i+=5) {
+                png.desenharCircunferencia(raio, pnCorContorno.getBackground());
+            }
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnDesenharCircunferenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,17 +393,21 @@ public class FormPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDesenharCircunferencia;
     private javax.swing.JButton btnDesenharSegmentoReta;
-    private javax.swing.JButton btnDesenharSegmentoReta1;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblRaio;
     private javax.swing.JLabel lblX1;
     private javax.swing.JLabel lblX2;
     private javax.swing.JLabel lblY1;
     private javax.swing.JLabel lblY2;
     private javax.swing.JPanel pn;
+    private javax.swing.JPanel pnCircunferencia;
     private javax.swing.JPanel pnCor;
     private javax.swing.JPanel pnCorContorno;
     private javax.swing.JPanel pnSegmentoReta;
+    private javax.swing.JTextField txtRaio;
     private javax.swing.JTextField txtX1;
     private javax.swing.JTextField txtX2;
     private javax.swing.JTextField txtXY;
