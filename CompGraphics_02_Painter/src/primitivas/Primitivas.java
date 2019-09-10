@@ -4,6 +4,7 @@ import util.JPanelGraphics;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Point;
 
 /**
  *
@@ -132,5 +133,21 @@ public class Primitivas extends JPanelGraphics {
     
     public void setarRetaCurva(boolean status) {
         boolean xretas = status;
+    }
+
+    public void desenharPoligono(java.util.List<java.awt.Point> lista, Color rgb) {
+        if (lista.size() > 0) {
+            Graphics2D g = (Graphics2D) image.getGraphics();
+            g.setColor(rgb);
+            for (int i = 1; i < lista.size(); i++) {
+                Point p1 = lista.get(i - 1);
+                Point p2 = lista.get(i);
+                g.drawLine(p1.x, p1.y, p2.x, p2.y);
+            }
+            Point p1 = lista.get(lista.size() - 1);
+            Point p2 = lista.get(0);
+            g.drawLine(p1.x, p1.y, p2.x, p2.y);
+            repaint();
+        }
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JColorChooser;
 import primitivas.Curvas;
 import primitivas.Primitivas;
+import primitivas.Transformacoes;
 
 /**
  *
@@ -60,6 +61,24 @@ public class FormPrincipal extends javax.swing.JFrame {
         btnBSplines = new javax.swing.JButton();
         txtHermite1 = new javax.swing.JTextField();
         txtHermite2 = new javax.swing.JTextField();
+        pnTranslacao = new javax.swing.JPanel();
+        lblTx = new javax.swing.JLabel();
+        txtTx = new javax.swing.JTextField();
+        lblTy = new javax.swing.JLabel();
+        txtTy = new javax.swing.JTextField();
+        btnDesenharTranslacao = new javax.swing.JButton();
+        pnEscala = new javax.swing.JPanel();
+        lblSx = new javax.swing.JLabel();
+        txtSx = new javax.swing.JTextField();
+        lblSy = new javax.swing.JLabel();
+        txtSy = new javax.swing.JTextField();
+        btnDesenharEscala = new javax.swing.JButton();
+        pnRotacao = new javax.swing.JPanel();
+        lblTheta = new javax.swing.JLabel();
+        txtTheta = new javax.swing.JTextField();
+        btnDesenharRotacao = new javax.swing.JButton();
+        pnSegmentoReta5 = new javax.swing.JPanel();
+        btnDesenharTriangulo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -82,7 +101,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         pn.setLayout(pnLayout);
         pnLayout.setHorizontalGroup(
             pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGap(0, 867, Short.MAX_VALUE)
         );
         pnLayout.setVerticalGroup(
             pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,19 +239,14 @@ public class FormPrincipal extends javax.swing.JFrame {
             .addGroup(pnCorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(pnCorLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnCorLayout.createSequentialGroup()
+                        .addComponent(pnCorContorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
                         .addGroup(pnCorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnCorLayout.createSequentialGroup()
-                                .addComponent(pnCorContorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRetas, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnCorLayout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(btnCurvas, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20))))
+                            .addComponent(btnRetas, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCurvas, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCorLayout.setVerticalGroup(
             pnCorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,10 +352,11 @@ public class FormPrincipal extends javax.swing.JFrame {
                     .addComponent(btnBezier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnCircunferencia1Layout.createSequentialGroup()
                         .addComponent(btnHermite, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnCircunferencia1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHermite1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHermite2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnCircunferencia1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtHermite1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(txtHermite2))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btnBSplines, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -362,26 +377,200 @@ public class FormPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pnTranslacao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Translação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblTx.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTx.setText("Tx");
+
+        txtTx.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        lblTy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTy.setText("Ty");
+
+        txtTy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        btnDesenharTranslacao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDesenharTranslacao.setText("Desenhar");
+        btnDesenharTranslacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesenharTranslacaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnTranslacaoLayout = new javax.swing.GroupLayout(pnTranslacao);
+        pnTranslacao.setLayout(pnTranslacaoLayout);
+        pnTranslacaoLayout.setHorizontalGroup(
+            pnTranslacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTranslacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnTranslacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDesenharTranslacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnTranslacaoLayout.createSequentialGroup()
+                        .addComponent(lblTx)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTx, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTy, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnTranslacaoLayout.setVerticalGroup(
+            pnTranslacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTranslacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnTranslacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTy)
+                    .addComponent(lblTx))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDesenharTranslacao)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnEscala.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Escala", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblSx.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSx.setText("Sx");
+
+        txtSx.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        lblSy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSy.setText("Sy");
+
+        txtSy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        btnDesenharEscala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDesenharEscala.setText("Desenhar");
+        btnDesenharEscala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesenharEscalaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnEscalaLayout = new javax.swing.GroupLayout(pnEscala);
+        pnEscala.setLayout(pnEscalaLayout);
+        pnEscalaLayout.setHorizontalGroup(
+            pnEscalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEscalaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnEscalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDesenharEscala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnEscalaLayout.createSequentialGroup()
+                        .addComponent(lblSx)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSx, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSy, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnEscalaLayout.setVerticalGroup(
+            pnEscalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEscalaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnEscalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSy)
+                    .addComponent(lblSx))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDesenharEscala)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnRotacao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rotação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblTheta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTheta.setText("<html>&Theta<html>");
+
+        txtTheta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        btnDesenharRotacao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDesenharRotacao.setText("Desenhar");
+        btnDesenharRotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesenharRotacaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnRotacaoLayout = new javax.swing.GroupLayout(pnRotacao);
+        pnRotacao.setLayout(pnRotacaoLayout);
+        pnRotacaoLayout.setHorizontalGroup(
+            pnRotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnRotacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnRotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDesenharRotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnRotacaoLayout.createSequentialGroup()
+                        .addComponent(lblTheta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTheta)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnRotacaoLayout.setVerticalGroup(
+            pnRotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnRotacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnRotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTheta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTheta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDesenharRotacao)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnSegmentoReta5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Triângulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        btnDesenharTriangulo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDesenharTriangulo.setText("Desenhar");
+        btnDesenharTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesenharTrianguloActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnSegmentoReta5Layout = new javax.swing.GroupLayout(pnSegmentoReta5);
+        pnSegmentoReta5.setLayout(pnSegmentoReta5Layout);
+        pnSegmentoReta5Layout.setHorizontalGroup(
+            pnSegmentoReta5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnSegmentoReta5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDesenharTriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pnSegmentoReta5Layout.setVerticalGroup(
+            pnSegmentoReta5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnSegmentoReta5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDesenharTriangulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtXY)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(pnSegmentoReta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pnCor, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                                    .addComponent(pnCircunferencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pnCircunferencia1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnCor, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                    .addComponent(pnCircunferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pnSegmentoReta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pnCircunferencia1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtXY))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+                .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(pnRotacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnSegmentoReta5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnEscala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -389,6 +578,15 @@ public class FormPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pnEscala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pnRotacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pnSegmentoReta5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnCor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -398,10 +596,10 @@ public class FormPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(pnCircunferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtXY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE))
+                    .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -528,6 +726,46 @@ public class FormPrincipal extends javax.swing.JFrame {
         setarCurvaReta(false);
     }//GEN-LAST:event_btnCurvasActionPerformed
 
+    private void btnDesenharTranslacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharTranslacaoActionPerformed
+        
+        int tx = Integer.parseInt(txtTx.getText());
+        int ty = Integer.parseInt(txtTy.getText());
+
+        new Transformacoes().translacao(lista, tx, ty);
+        png.limpar();
+        png.desenharPoligono(lista, pnCorContorno.getBackground());
+    }//GEN-LAST:event_btnDesenharTranslacaoActionPerformed
+
+    private void btnDesenharEscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharEscalaActionPerformed
+        
+        double Sx = Integer.parseInt(txtSx.getText());
+        double Sy = Integer.parseInt(txtSy.getText());
+        
+        new Transformacoes().escala(lista, Sx, Sy);
+        png.limpar();
+        png.desenharPoligono(lista, pnCorContorno.getBackground());
+        
+    }//GEN-LAST:event_btnDesenharEscalaActionPerformed
+
+    private void btnDesenharRotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharRotacaoActionPerformed
+        double theta = Double.parseDouble(txtTheta.getText());
+        
+        new Transformacoes().rotacao(lista, theta);
+        png.limpar();
+        png.desenharPoligono(lista, pnCorContorno.getBackground());
+    }//GEN-LAST:event_btnDesenharRotacaoActionPerformed
+
+    private void btnDesenharTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharTrianguloActionPerformed
+        int cx = pn.getWidth() / 2;
+        int cy = png.getHeight() / 2;
+
+        lista.clear();
+        lista.add(new Point(cx, cy - 100));
+        lista.add(new Point(cx - 100, cy + 100));
+        lista.add(new Point(cx + 100, cy + 100));
+        png.desenharPoligono(lista, pnCorContorno.getBackground());
+    }//GEN-LAST:event_btnDesenharTrianguloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,30 +806,59 @@ public class FormPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnBezier;
     private javax.swing.JButton btnCurvas;
     private javax.swing.JButton btnDesenharCircunferencia;
+    private javax.swing.JButton btnDesenharEscala;
+    private javax.swing.JButton btnDesenharRotacao;
     private javax.swing.JButton btnDesenharSegmentoReta;
+    private javax.swing.JButton btnDesenharSegmentoReta1;
+    private javax.swing.JButton btnDesenharTranslacao;
+    private javax.swing.JButton btnDesenharTriangulo;
     private javax.swing.JButton btnHermite;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnRetas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblRaio;
+    private javax.swing.JLabel lblSx;
+    private javax.swing.JLabel lblSy;
+    private javax.swing.JLabel lblTheta;
+    private javax.swing.JLabel lblTx;
+    private javax.swing.JLabel lblTy;
     private javax.swing.JLabel lblX1;
     private javax.swing.JLabel lblX2;
+    private javax.swing.JLabel lblX3;
+    private javax.swing.JLabel lblX4;
     private javax.swing.JLabel lblY1;
     private javax.swing.JLabel lblY2;
+    private javax.swing.JLabel lblY3;
+    private javax.swing.JLabel lblY4;
     private javax.swing.JPanel pn;
+    private javax.swing.JPanel pn1;
     private javax.swing.JPanel pnCircunferencia;
     private javax.swing.JPanel pnCircunferencia1;
     private javax.swing.JPanel pnCor;
     private javax.swing.JPanel pnCorContorno;
+    private javax.swing.JPanel pnEscala;
+    private javax.swing.JPanel pnRotacao;
     private javax.swing.JPanel pnSegmentoReta;
+    private javax.swing.JPanel pnSegmentoReta1;
+    private javax.swing.JPanel pnSegmentoReta5;
+    private javax.swing.JPanel pnTranslacao;
     private javax.swing.JTextField txtHermite1;
     private javax.swing.JTextField txtHermite2;
     private javax.swing.JTextField txtRaio;
+    private javax.swing.JTextField txtSx;
+    private javax.swing.JTextField txtSy;
+    private javax.swing.JTextField txtTheta;
+    private javax.swing.JTextField txtTx;
+    private javax.swing.JTextField txtTy;
     private javax.swing.JTextField txtX1;
     private javax.swing.JTextField txtX2;
+    private javax.swing.JTextField txtX3;
+    private javax.swing.JTextField txtX4;
     private javax.swing.JTextField txtXY;
     private javax.swing.JTextField txtY1;
     private javax.swing.JTextField txtY2;
+    private javax.swing.JTextField txtY3;
+    private javax.swing.JTextField txtY4;
     // End of variables declaration//GEN-END:variables
 
     private void configurarFormulario() {
